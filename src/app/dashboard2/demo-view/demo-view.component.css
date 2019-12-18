@@ -1,0 +1,57 @@
+.jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 4rem 2rem;
+    }
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+
+.list-group-item {
+    padding: 15px;
+    border: 0px;
+}
+
+
+.list-group-item a {
+    font-weight: bold;
+}
+
+.side-bar {
+    background: white;
+    min-height: 400px;
+}

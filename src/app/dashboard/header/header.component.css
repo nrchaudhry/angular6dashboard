@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+.logo-text {
+    position: relative;
+    top: 8px;
+    left: 30px;
+    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+}
+
+.navbar-top-links a {
+    font-family: 'Lobster', cursive;
+    font-size: 1.8em;
+}
+.theme-setting.active {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0) scale(1);
+    transform: translate3d(0px, 0px, 0) scale(1);
+}
+.theme-setting {
+    background-color: transparent;
+    position: relative !important;
+    bottom: 0px !important;
+    right: 0px;
+    width: 100% !important;
+    padding: 25px 35px;
+    -webkit-box-shadow: 0px 15px 125px rgba(0, 0, 0, 0) !important;
+    box-shadow: 0px 15px 125px rgba(0, 0, 0, 0) !important;
+    border-radius: 6px;
+    color: #3E4B5B;
+    z-index: 999;
+    right: 0px !important;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: translate3d(20px, 40px, 0) scale(0.9);
+    transform: translate3d(20px, 40px, 0) scale(0.9);
+}
+.theme-setting {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 320px;
+    padding: 25px 35px;
+    -webkit-box-shadow: 0px 15px 125px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 15px 125px rgba(0, 0, 0, 0.22);
+    border-radius: 6px;
+    color: #3E4B5B;
+    bottom: 70px;
+    z-index: 999;
+    right: 395px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: translate3d(20px, 40px, 0) scale(0.9);
+    transform: translate3d(20px, 40px, 0) scale(0.9);
+}
+.theme-setting .fcp-content .fcp-group-header {
+    color: #000000;
+    font-weight: 500;
+    font-family: "Avenir Next W01", "Proxima Nova W01", "Rubik", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 34px;
+}

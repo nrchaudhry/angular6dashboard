@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+.logo-text {
+    position: relative;
+    top: 8px;
+    left: 30px;
+    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+}
+
+.navbar-top-links a {
+    font-family: 'Lobster', cursive;
+    font-size: 1.8em;
+}

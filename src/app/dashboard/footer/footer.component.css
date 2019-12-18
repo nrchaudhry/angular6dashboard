@@ -1,0 +1,9 @@
+.pull-right {
+    float: right;
+}
+
+.footer-img-responsive {
+    position: relative;
+    top: 5px;
+    width: 100px;
+}

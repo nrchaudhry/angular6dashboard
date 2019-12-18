@@ -1,0 +1,285 @@
+<div [ngClass]="{
+    'color-scheme-transparent' : settings.topbar_COLOR == 'color-transparent',
+    'color-scheme-bright' : settings.topbar_COLOR == 'color-bright',
+    'color-scheme-dark' : settings.theme_COLOR == 'dark' || settings.topbar_COLOR == 'color-dark',
+    'color-scheme-light' : settings.theme_COLOR == 'light' || settings.topbar_COLOR == 'color-light'  
+}" class="top-bar">
+    <div class="fancy-selector-w">
+        <div class="fancy-selector-current text-bright">
+            <div class="fs-main-info text-bright">
+                <div class="fs-name text-bright">{{HeaderName}}</div>
+                <div class="fs-sub"><span class="text-bright">Last Login:</span><strong>{{last_LOGIN}}</strong></div>
+            </div>
+        </div>
+    </div>
+    <div class="top-menu-controls top-menu-controls-custom">
+        <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left"><i class="os-icon os-icon-ui-46"></i>
+            <div class="os-dropdown">
+                <div class="icon-w"><i class="os-icon os-icon-ui-46"></i></div>
+                <ul>
+                    <li><a (click)="themeSettingsModel()"><i class="os-icon os-icon-ui-49"></i><span>Theme Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="logged-user-w">
+            <div class="logged-user-i">
+                <div class="avatar-w">
+                    <img alt="" src="assets/images/theme/user.png">
+                </div>&nbsp;&nbsp;
+                <span><b>{{surname}}</b></span>
+                <div class="logged-user-menu color-style-bright">
+                    <div class="logged-user-avatar-info">
+                        <div class="avatar-w"><img alt="" src="assets/images/theme/user.png"></div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">{{surname}} {{forenames}}</div>
+                        </div>
+                    </div>
+                    <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
+                    <ul>
+                        <li (click)="logout()"><a href="javascript:void(0)"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-labelledby="exampleModalLabel" class="modal fade show" id="themesettings" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class="os-icon os-icon-ui-49" aria-hidden="true"></i>
+                    Theme Settings
+                </h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true"> ×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="theme-setting active">
+                    <div class="fcp-content">
+                        <div class="fcp-group">
+                            <div class="fcp-group-header">Theme Settings</div>
+                            <div class="fcp-group-contents">
+                                <div class="fcp-field"><label for="">Theme Color</label>
+                                    <select class="form-control form-control-sm rounded " [(ngModel)]="settings.theme_COLOR"
+                                        name="settings.theme_COLOR">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="fcp-group-header">Menu Settings</div>
+                            <div class="fcp-group-contents">
+                                <div class="fcp-field"><label for="">Menu Position</label>
+                                    <select class="form-control form-control-sm rounded " [(ngModel)]="settings.sidemenu_POSITION"
+                                        name="settings.sidemenu_POSITION">
+                                        <option value="left">Left</option>
+                                        <option value="right">Right</option>
+                                        <option value="top">Top</option>
+                                    </select></div>
+                                <div class="fcp-field"><label for="">Menu Style</label><select class="form-control form-control-sm rounded "
+                                        [(ngModel)]="settings.sidemenu_STYLE" name="settings.sidemenu_STYLE">
+                                        <option value="compact">Compact</option>
+                                        <option value="full">Full</option>
+                                    </select></div>
+                                <div class="fcp-field"><label for="">Menu Color</label>
+                                    <div class="fcp-colors">
+                                        <div class="color-selector color-bright" (click)="changeMenuColor('color-bright' , settings , 'menu')"
+                                            [ngClass]="{'selected': settings.sidemenu_COLOR == 'color-bright' }"></div>
+                                        <div class="color-selector  color-dark" (click)="changeMenuColor('color-dark' , settings , 'menu')"
+                                            [ngClass]="{'selected': settings.sidemenu_COLOR == 'color-dark' }"></div>
+                                        <div class="color-selector  color-light" (click)="changeMenuColor('color-light' , settings , 'menu')"
+                                            [ngClass]="{'selected': settings.sidemenu_COLOR == 'color-light' }"></div>
+                                        <div class="color-selector  color-transparent" (click)="changeMenuColor('color-transparent' , settings , 'menu')"
+                                            [ngClass]="{'selected': settings.sidemenu_COLOR == 'color-transparent' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fcp-group">
+                            <div class="fcp-group-header">Sub Menu</div>
+                            <div class="fcp-group-contents">
+                                <!-- <div class="fcp-field"><label for="">Sub Menu Style</label><select class="form-control form-control-sm rounded "
+                                        [(ngModel)]="settings.submenu_STYLE" name="settings.submenu_STYLE">
+                                        <option value="flyout">Flyout</option>
+                                        <option value="inside">Inside/Click</option>
+                                        <option value="over">Over</option>
+                                    </select></div> -->
+                                <div class="fcp-field"><label for="">Sub Menu Color</label>
+                                    <div class="fcp-colors">
+                                        <div class="color-selector color-bright" (click)="changeMenuColor('color-bright' , settings , 'submenu')"
+                                            [ngClass]="{'selected': settings.submenu_COLOR == 'color-bright' }"></div>
+                                        <div class="color-selector color-dark" (click)="changeMenuColor('color-dark' , settings , 'submenu')"
+                                            [ngClass]="{'selected': settings.submenu_COLOR == 'color-dark' }"></div>
+                                        <div class="color-selector  color-light" (click)="changeMenuColor('color-light' , settings , 'submenu')"
+                                            [ngClass]="{'selected': settings.submenu_COLOR == 'color-light' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fcp-group">
+                            <div class="fcp-group-header">Other Settings</div>
+                            <div class="fcp-group-contents">
+                                <div class="fcp-field"><label for="">Top Bar Color</label>
+                                    <div class="fcp-colors">
+                                        <div class="color-selector color-bright" (click)="changeMenuColor('color-bright' , settings , 'topbar')"
+                                            [ngClass]="{'selected': settings.topbar_COLOR == 'color-bright' }"></div>
+                                        <div class="color-selector  color-dark" (click)="changeMenuColor('color-dark' , settings , 'topbar')"
+                                            [ngClass]="{'selected': settings.topbar_COLOR == 'color-dark' }"></div>
+                                        <div class="color-selector  color-light" (click)="changeMenuColor('color-light' , settings , 'topbar')"
+                                            [ngClass]="{'selected': settings.topbar_COLOR == 'color-light' }"></div>
+                                        <div class="color-selector  color-transparent" (click)="changeMenuColor('color-transparent' , settings , 'topbar')"
+                                            [ngClass]="{'selected': settings.topbar_COLOR == 'color-transparent' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="UpdateTheme(settings)">
+                    Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="top-bar color-scheme-transparent fixed-top header-fixed" id="header-fixed">
+    <div>
+        <ul class="nav navbar-top-links  ml-5">
+            <li>
+                <a class="ng-binding">
+                    {{ProjectTitle}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="top-menu-controls">
+        <div class="logged-user-w">
+            <div class="logged-user-i">
+                <div class="avatar-w"><img alt="" src="../../../assets/images/user.png"></div>
+                <div class="logged-user-menu color-style-bright">
+                    <div class="logged-user-avatar-info">
+                        <div class="avatar-w"><img alt="" src="../../../assets/images/user.png"></div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">Maria Gomez</div>
+                            <div class="logged-user-role">Administrator</div>
+                        </div>
+                    </div>
+                    <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
+                    <ul>
+                        <li><a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a></li>
+                        <li><a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
+                                    Details</span></a></li>
+                        <li><a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing
+                                    Details</span></a></li>
+                        <li><a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a></li>
+                        <li><a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="top-bar fixed-top header-fixed" id="header-fixed">
+    <div class="logo-w " style="padding: 0px 0px 5px 14px;width:15%;">
+        <a class="logo m-auto">
+            <img [src]=appLogoPath />
+        </a>
+    </div>
+    <div>
+        <ul class="nav navbar-top-links  ml-5">
+            <li>
+                <a class="ng-binding">
+                    {{ProjectTitle}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="top-menu-controls">
+        <div class="logged-user-w avatar-inline">
+            <div class="logged-user-i">
+                <div class="avatar-w">
+                    <img alt="" src="/assets/images/user.png">
+                </div>&nbsp;&nbsp;
+                <span><b>{{surname}} {{forenames}}</b></span>
+                <div class="logged-user-info-w"></div>
+                <div class="logged-user-toggler-arrow"></div>
+                <div class="logged-user-menu color-style-bright">
+                    <div class="logged-user-avatar-info">
+                        <div class="avatar-w">
+                            <img alt="" src="/assets/images/user.png">
+                        </div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name"><b>{{surname}} {{forenames}}</b></div>
+                        </div>
+                    </div>
+                    <div class="bg-icon">
+                        <i class="os-icon os-icon-wallet-loaded"></i>
+                    </div>
+                    <ul>
+                        <li (click)="logout()">
+                            <a href="javascript:void(0)">
+                                <i class="os-icon os-icon-signs-11"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+<!--------------------
+END - User avatar and menu in secondary top menu
+-------------------->
+<!-- </div> -->
+<!--------------------
+END - Top Menu Controls
+-------------------->
+<!-- </div> -->
+<!-- 
+<div class="top-bar fixed-top header-fixed" id="header-fixed">
+    <div class="fancy-selector-w">
+        <div class="fancy-selector-current">
+            <div class="fs-main-info">
+                <div class="fs-name">Your Last login</div>
+                <div class="fs-sub"><span></span><strong>{{last_LOGIN}}</strong></div>
+            </div>
+        </div>
+    </div>
+    <div class="top-menu-controls">
+        <div class="logged-user-w avatar-inline">
+            <div class="logged-user-i">
+                <div class="avatar-w">
+                    <img alt="" src="/assets/images/user.png">
+                </div>
+                <div class="logged-user-info-w"></div>
+                <div class="logged-user-toggler-arrow"></div>
+                <div class="logged-user-menu color-style-bright">
+                    <div class="logged-user-avatar-info">
+                        <div class="avatar-w">
+                            <img alt="" src="/assets/images/user.png">
+                        </div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">Mr Admin Admin</div>
+                            <div class="logged-user-role">Administrator</div>
+                        </div>
+                    </div>
+                    <div class="bg-icon">
+                        <i class="os-icon os-icon-wallet-loaded"></i>
+                    </div>
+                    <ul>
+                        <li (click)="logout()">
+                            <a href="javascript:void(0)">
+                                <i class="os-icon os-icon-signs-11"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,17 @@
+<body>
+    <div class="_formHeader" align="center">
+        <img [src]=appLogoPath class="img-responsive center-block">
+    </div>
+    <div style="margin-bottom: 85px;">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="footer main-footer">
+        <div class="container">
+            <img [src]=appLogoPath class="footer-img-responsive" />
+            <div class="float-right">
+                <span>{{CopyRights}} </span>
+                <strong style="font-weight: 700;font-size: 14px;"> <a href="{{CompanyLink}}">{{CompanyName}} </a></strong>All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>

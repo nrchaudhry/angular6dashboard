@@ -1,0 +1,161 @@
+.os-icon-plus-circle {
+    font-size: 20px;
+}
+
+.os-icon-minus-circle {
+    font-size: 20px;
+}
+
+.element-wrapper .element-header:after {
+    background-color: rgb(0, 0, 0);
+}
+
+.services-with-bg .service-center-icon.white:before {
+    left: -2px;
+}
+
+.services-with-bg .service-center-icon:before {
+    opacity: 0.95;
+}
+
+.service-bg-icon.white:before,
+.service-center-icon.white:before {
+    background: #ffffff;
+}
+
+.service-bg-icon:before,
+.service-center-icon:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #00a651;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.services-with-bg .service-center-icon.white,
+.services-with-bg .service-center-icon.color-4+.service-center-icon {
+    overflow: visible;
+}
+
+.service-center-icon {
+    padding: 40px 15px 35px 15px;
+}
+
+.service-bg-icon,
+.service-center-icon {
+    padding: 65px 70px 80px 95px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.divider.mini {
+    width: 30px;
+}
+
+.divider.gray-darknest {
+    background: #8a9499;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.divider {
+    display: block;
+    margin: 9px auto;
+    width: 50px;
+    height: 2px;
+    background: #00a651;
+}
+
+.service-bg-icon>*,
+.service-center-icon>* {
+    position: relative;
+    z-index: 2;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.service-bg-icon>*,
+.service-center-icon>* {
+    position: relative;
+    z-index: 2;
+}
+
+.cws-button.small {
+    line-height: 19px;
+    min-width: 120px;
+    padding: 6px 20px;
+}
+
+.service-bg-icon>*,
+.service-center-icon>* {
+    position: relative;
+    z-index: 2;
+}
+
+.cws-button {
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    min-width: 160px;
+    padding: 8px 20px;
+    color: #00a651;
+    background: transparent;
+    border: 2px solid #00a651;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.transition,
+.filter-grayscale,
+.cws-button,
+.cws-icon.border-icon,
+.cws-icon.type-3,
+.cws-icon.type-3:before,
+.cws-icon.type-3:after,
+.hover-effect-2 .opacity,
+.cws-social:before,
+.accordion .content-title,
+.toggle .content-title,
+.accordion .content-title span i.accordion-icon,
+.toggle .content-title span i.accordion-icon,
+.accordion .content-title span i.accordion-icon:before,
+.toggle .content-title span i.accordion-icon:before,
+.accordion .content-title span i.accordion-icon:after,
+.toggle .content-title span i.accordion-icon:after,
+.alert .close,
+.tabs .tabs-btn,
+.pic .hover-effect,
+.pic .links,
+.pic .links .link-icon:first-child,
+.pic .links .link-icon:last-child,
+.carousel-container .carousel-nav .prev,
+.carousel-container .carousel-nav .next,
+.carousel-pag .owl-pagination .owl-page,
+.pagiation-carousel .owl-pagination .owl-page {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}

@@ -1,0 +1,166 @@
+<body [ngClass]="{
+                'full-screen' : true,
+                'color-scheme-dark' : settings.theme_COLOR == 'dark',
+                'color-scheme-light' : settings.theme_COLOR == 'light', 
+                'menu-side-right' : settings.sidemenu_POSITION == 'right',
+                'menu-side-left' : settings.sidemenu_POSITION == 'left',
+                'menu-position-side' : settings.sidemenu_POSITION == 'left' || settings.sidemenu_POSITION == 'right',    
+                'menu-position-top' : settings.sidemenu_POSITION == 'top' 
+            }">
+    <div class="all-wrapper solid-bg-all">
+        <div class="layout-w">
+            <!--------------------
+START - Mobile Menu
+-------------------->
+            <div class="menu-mobile menu-activated-on-click color-scheme-dark">
+                <div class="mm-logo-buttons-w"><a class="mm-logo" ><img
+                            [src]=appLogoPath></a>
+                    <div class="mm-buttons">
+                        <div class="content-panel-open">
+                            <div class="os-icon os-icon-grid-circles"></div>
+                        </div>
+                        <div class="mobile-menu-trigger">
+                            <div class="os-icon os-icon-hamburger-menu-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-and-user">
+                    <div class="logged-user-w">
+                        <div class="avatar-w"><img alt="" src="assets/images/theme/user.png"></div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">{{surname}} {{forenames}}</div>
+                        </div>
+                    </div>
+                    <ul class="main-menu">
+                        <li *ngFor="let m of menu " class=" has-sub-menu pointer">
+                        <a>
+                            <div class="icon-w">
+                                <i aria-hidden="true" class="fa fa-clone"></i>
+                            </div>
+                            <span>{{m.cat}}</span>
+                        </a>
+                        <div class="sub-menu-w">
+                            <div class="sub-menu-header">{{m.cat}}</div>
+                            <div class="sub-menu-icon">
+                                <i class="{{ m.iconname }}"></i>
+                            </div>
+                            <div class="sub-menu-i">
+                                <ul class="sub-menu">
+                                    <li *ngFor="let p of m.pri">
+                                        <a routerLink="/dashboard{{p.link}}">{{p.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li *ngIf="menu.length == 0" align="center">
+                        <span class="text-danger" style="font-weight:bold;">No Priviliges available</span>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <!--------------------
+END - Mobile Menu
+-------------------->
+            <!--------------------
+START - Main Menu
+-------------------->
+            <div [hidden]="!loadIT" style="height:auto" class="menu-w sub-menu-style-flyout selected-menu-color-light menu-activated-on-hover" [ngClass]="{
+                'sub-menu-color-dark' : settings.submenu_COLOR == 'color-dark',
+                'sub-menu-color-light' : settings.submenu_COLOR == 'color-light',
+                'sub-menu-color-bright' : settings.submenu_COLOR == 'color-bright',
+                'menu-side-right' : settings.sidemenu_POSITION == 'right',
+                'menu-side-left' : settings.sidemenu_POSITION == 'left',
+                'menu-position-side' : settings.sidemenu_POSITION == 'left' || settings.sidemenu_POSITION == 'right',    
+                'menu-position-top' : settings.sidemenu_POSITION == 'top', 
+                'color-style-default' : settings.sidemenu_COLOR == 'color-dark' || settings.sidemenu_COLOR == 'color-light',
+                'color-scheme-light' : settings.sidemenu_COLOR == 'color-light' || settings.sidemenu_COLOR == 'color-transparent',
+                'color-style-transparent' : settings.sidemenu_COLOR == 'color-transparent',
+                'color-scheme-dark' : settings.sidemenu_COLOR == 'color-dark' || settings.sidemenu_COLOR == 'color-bright' || settings.theme_COLOR == 'dark',
+                'color-style-bright' : settings.sidemenu_COLOR == 'color-bright',
+                'menu-layout-full' : settings.sidemenu_STYLE == 'full',
+                'menu-layout-compact' : settings.sidemenu_STYLE == 'compact',
+                'menu-layout-mini' : settings.sidemenu_STYLE == 'mini' 
+            }" >
+                <div class="logo-w"><a class="logo" href="#">
+                        <div class="logo-label"><img [src]=appLogoPath></div>
+                    </a></div>
+                <div class="logged-user-w avatar-inline">
+                    <div class="logged-user-i">
+                        <div class="avatar-w"><img alt="" src="assets/images/theme/user.png"></div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">{{surname}} {{forenames}}</div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="menu-page-header">Menu</h1>
+                <ul class="main-menu">
+                    <li class="selected pointer">
+                        <a routerLink="/dashboard/home">
+                            <div class="icon-w">
+                                <div class="os-icon os-icon-layout"></div>
+                            </div><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="selected pointer">
+                        <a routerLink="/view/demo/1/DemoviewOne">
+                            <div class="icon-w">
+                                <div class="os-icon os-icon-hamburger-menu-1"></div>
+                            </div><span>Demo Dashboard 2</span>
+                        </a>
+                    </li>
+                    <!-- <li *ngFor="let p of AllMenus" class="pointer">
+                                    <a [routerLink]="'/dashboard'+p.privilege_URL">
+                                        <div class="icon-w">
+                                            <div class="{{ p.pcategory_ID.pcategory_ICON }}"></div>
+                                        </div><span>{{p.privilege_NAME}}</span>
+                                    </a>
+                                </li> -->
+                    <li *ngFor="let m of menu " class=" has-sub-menu pointer">
+                        <a>
+                            <div class="icon-w">
+                                <i aria-hidden="true" class="{{ m.iconname }}"></i>
+                            </div>
+                            <span>{{m.cat}}</span>
+                        </a>
+                        <div class="sub-menu-w">
+                            <div class="sub-menu-header">{{m.cat}}</div>
+                            <div class="sub-menu-icon">
+                                <i class="{{ m.iconname }}"></i>
+                            </div>
+                            <div class="sub-menu-i">
+                                <ul class="sub-menu">
+                                    <li *ngFor="let p of m.pri">
+                                        <a routerLink="/dashboard{{p.link}}">{{p.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li *ngIf="menu.length == 0" align="center">
+                        <span class="text-danger" style="font-weight:bold;">No Priviliges available</span>
+                    </li>
+                </ul>
+            </div>
+            <!--------------------
+END - Main Menu
+-------------------->
+            <div class="content-w" style="width: -webkit-fill-available;">
+                <!--------------------
+START - Top Bar
+-------------------->
+                <app-header></app-header>
+                <!--------------------
+END - Top Bar
+-------------------->
+                <div class="content-i">
+                    <div class="content-box" style="min-height: 61em;">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="display-type"></div>
+    </div>
+
+</body>
